@@ -1,0 +1,27 @@
+{
+  "name": "dictionary_extension",
+  "version": "1.0.0",
+  "description": "Basic Chrome extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc": "tsc",
+    "tsc:w": "tsc --watch",
+    "webpack-prod": "webpack --mode production",
+    "webpack-dev": "webpack --mode production --watch"
+  },
+  "author": "Desmond Mends",
+  "license": "ISC",
+  "devDependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "style-loader": "^4.0.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@types/chrome": "^0.0.287"
+  }
+}

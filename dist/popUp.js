@@ -1,0 +1,1 @@
+(()=>{"use strict";document.querySelector(".meaning"),document.querySelector(".synonyms");let e="";chrome.storage.local.get("selectedWord",(function(o){e=o.selectedWord})),chrome.storage.onChanged.addListener((function(o,t){o.selectedWord&&(e=o.selectedWord.newValue,console.log(e))}))})();

@@ -1,0 +1,1 @@
+(()=>{"use strict";chrome.runtime.onMessage.addListener(((e,i,t)=>{var n;"getWord"===e.type&&t({word:null===(n=window.getSelection())||void 0===n?void 0:n.toString()}),"definition"===e.type&&alert(e.definition)}))})();
