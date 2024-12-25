@@ -9,13 +9,16 @@
 <body>
     <p class="text">
         <div>
-            <span class="selectedWord bold"></span>
-            <span id="meaning"></span>
+            <div class="word-input">
+                <label for="word" aria-hidden="true"></label>
+                <input id="word-input" type="text" name="word" placeholder="Enter word" aria-label="word"/>
+                <button id="define-btn">Define</button>
+            </div>
         </p>
-        <p>
-            <span class="bold">Synonyms: </span>
-            <span id="synonyms"></span>
-        </p>
+        <div>
+            <span id="selectedWord"></span>
+            <p id="meaning"></p>
+        </div>
         </div>
         <script src="./popUp.js" type="module"></script>
 </body>

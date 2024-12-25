@@ -1,0 +1,1 @@
+(()=>{"use strict";document.querySelector("#define-btn");const e=document.querySelector("#word-input");document.querySelector("s#electedWord"),document.querySelector("#meaning"),document.addEventListener("DOMContentLoaded",(function(){chrome.storage.sync.get(["mySelection"],(t=>{null==e||e.setAttribute("value",t.mySelection)}))}))})();

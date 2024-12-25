@@ -14,7 +14,7 @@
       "service_worker": "background.js"
     },
     "action": {
-        
+      "default_popup": "index.html" 
     },
     "permissions": ["storage", "downloads", "tabs", "contextMenus", "scripting", "activeTab"],
     "host_permissions": ["<all_urls>"]
