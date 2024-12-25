@@ -50,7 +50,15 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request.action === "selectedText") {
         mySelection = request.text;
         console.log(mySelection)
-        chrome.storage.sync.set({mySelection: mySelection})
+        chrome.storage.sync.set({mySelection})
+    }
+    if (request.action === "Handshake") {
+        chrome.storage.sync.set({mySelection: ""})
     }
 })
 
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+    mySelection = info.selectionText;
+    chrome.storage.sync.set({mySelection});
+    chrome.action.openPopup();
+})

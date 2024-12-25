@@ -5,16 +5,13 @@ const meaning = document.querySelector("#meaning");
 let myWord = "";
 let selections;
 
-// chrome.runtime.sendMessage({action: "Handshake"}, (response) => {
-//     myWord = response.definition;
-//     console.log(response);
-//     alert(myWord)
-// })
+chrome.runtime.sendMessage({action: "Handshake"}, (response) => {})
 
 function updatePopUp() {
     chrome.storage.sync.get(['mySelection'], (data) => {
         wordInput?.setAttribute('value', data.mySelection)
     })
 }
+
 
 document.addEventListener('DOMContentLoaded', updatePopUp);
