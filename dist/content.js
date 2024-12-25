@@ -1,1 +1,1 @@
-(()=>{"use strict";chrome.runtime.onMessage.addListener(((e,i,t)=>{var n;"getWord"===e.type&&t({word:null===(n=window.getSelection())||void 0===n?void 0:n.toString()}),"definition"===e.type&&alert(e.definition)}))})();
+(()=>{"use strict";chrome.runtime.onMessage.addListener(((e,t,i)=>{var n;if("getWord"===e.type)return i({selectedWord:null===(n=window.getSelection())||void 0===n?void 0:n.toString()}),!0;"definition"===e.type&&alert(e.definition)}))})();

@@ -5,16 +5,18 @@
     "version": "1.0",
     "content_scripts": [
       {
-        "matches": ["*://*/*"],
-        "js": ["content.js"]
+        "matches": ["<all_urls>"],
+        "js": ["content.js"],
+        "all_frames": true
       }
     ],
     "background": {
       "service_worker": "background.js"
     },
     "action": {
-        "default_popup": "index.html"
+        
     },
-    "permissions": ["storage", "downloads", "tabs", "contextMenus"]
+    "permissions": ["storage", "downloads", "tabs", "contextMenus", "scripting", "activeTab"],
+    "host_permissions": ["<all_urls>"]
   }
   
