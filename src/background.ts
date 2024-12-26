@@ -30,7 +30,7 @@ let mySelection: any;
 //show pop for pdfs only
 chrome.tabs.onActivated.addListener(function (info) {
     var tab = chrome.tabs.get(info.tabId, function (tab) {
-        console.log(tab)
+        // console.log(tab)
         if (tab.url?.endsWith("pdf")) {
             chrome.tabs.sendMessage(tab.id as number, { type: "definition", definition: "Hello world" })
             chrome.contextMenus.update("Define", { visible: true }
@@ -44,25 +44,27 @@ chrome.tabs.onActivated.addListener(function (info) {
 
 //when on normal website
 chrome.action.onClicked.addListener(async (tab) => {
+    console.log("Hello world");
     const response = await chrome.tabs.sendMessage(tab.id as number, { type: "getWord" });
-    chrome.tabs.sendMessage(tab.id as number, { type: "definition", definition: response.selectedWord })
+    // console.log("Got called");
+    // chrome.tabs.sendMessage(tab.id as number, { type: "definition", definition: explanation });
 })
 
 //message handlers
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    //
     if (request.action === "selectedText") {
         mySelection = request.text;
-        chrome.storage.sync.set({mySelection})
+        chrome.storage.sync.set({ mySelection })
     }
     if (request.action === "Handshake") {
-        chrome.storage.sync.set({mySelection: ""})
+        chrome.storage.sync.set({ mySelection: "" })
+        chrome.storage.sync.set({ explanations: [] })
     }
 })
 
 //pdf handler
-chrome.contextMenus.onClicked.addListener((info, tab) => {
+chrome.contextMenus.onClicked.addListener(async (info, tab) => {
     mySelection = info.selectionText;
-    chrome.storage.sync.set({mySelection});
+    chrome.storage.sync.set({ mySelection });
     chrome.action.openPopup();
 })
