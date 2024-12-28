@@ -1,5 +1,13 @@
 //inject content scripts programmatically
 chrome.runtime.onInstalled.addListener(async () => {
+    chrome.contextMenus.create({
+        id: "Define",
+        title: "Define %s",
+        contexts: ["link", "selection"],
+        visible: true
+    });
+
+    
     for (const cs of chrome.runtime.getManifest().content_scripts!) {
         for (const tab of await chrome.tabs.query({ url: cs.matches })) {
             if (tab.url!.match(/(chrome|chrome-extension):\/\//gi)) {
@@ -18,11 +26,7 @@ chrome.runtime.onInstalled.addListener(async () => {
             }
         }
     }
-    chrome.contextMenus.create({
-        id: "Define",
-        title: "Define %s",
-        contexts: ["link", "selection"],
-    });
+
 })
 
 let mySelection: any;
@@ -32,7 +36,6 @@ chrome.tabs.onActivated.addListener(function (info) {
     var tab = chrome.tabs.get(info.tabId, function (tab) {
         // console.log(tab)
         if (tab.url?.endsWith("pdf")) {
-            chrome.tabs.sendMessage(tab.id as number, { type: "definition", definition: "Hello world" })
             chrome.contextMenus.update("Define", { visible: true }
             )
         } else {
