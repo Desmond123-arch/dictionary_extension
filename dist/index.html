@@ -11,12 +11,15 @@
         <div>
             <div class="word-input">
                 <label for="word" aria-hidden="true"></label>
-                <input id="word-input" type="text" name="word" placeholder="Enter word" aria-label="word"/>
+                <input id="word-input" required type="text" name="word" placeholder="Enter word" aria-label="word"/>
                 <button id="define-btn">Define</button>
             </div>
         </p>
         <div class="flex">
-            <span id="selectedWord" class="bold"></span>
+            <div class="flex-row">
+                <span id="selectedWord" class="bold"></span>
+                <button id="playbtn">&#128266;</button>
+            </div>
             <p id="meaning"></p>
         </div>
         </div>

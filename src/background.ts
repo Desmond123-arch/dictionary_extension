@@ -7,7 +7,6 @@ chrome.runtime.onInstalled.addListener(async () => {
         visible: true
     });
 
-    
     for (const cs of chrome.runtime.getManifest().content_scripts!) {
         for (const tab of await chrome.tabs.query({ url: cs.matches })) {
             if (tab.url!.match(/(chrome|chrome-extension):\/\//gi)) {
@@ -34,7 +33,7 @@ let mySelection: any;
 //show pop for pdfs only
 chrome.tabs.onActivated.addListener(function (info) {
     var tab = chrome.tabs.get(info.tabId, function (tab) {
-        // console.log(tab)
+        console.log(tab)
         if (tab.url?.endsWith("pdf")) {
             chrome.contextMenus.update("Define", { visible: true }
             )
