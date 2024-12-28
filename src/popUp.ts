@@ -92,16 +92,15 @@ function updatePopUp() {
 
 }
 
-// button?.addEventListener("click", async () => {
-//     const inputWord = wordInput?.value;
-//     const definition = await defineWord(inputWord)
-//     if (meaning) {
-//         meaning.innerHTML = explanations[0] || ""
-//     }
-//     console.log(selectedWord);
-//     if (selectedWord) {
-//         selectedWord.innerHTML = explanations[0] || "";
-//     }
-// });
+button?.addEventListener("click", async () => {
+    const inputWord = wordInput?.value;
+    const definition = await defineWord(inputWord)
+    if (meaning) {
+        meaning.appendChild(generateMeaningsHTML(definition.meanings));
+    }
+    if (selectedWord) {
+        selectedWord.innerHTML = definition.word as string;
+    }
+});
 
 document.addEventListener('DOMContentLoaded', updatePopUp);
