@@ -1,17 +1,38 @@
 body {
     background-color: #575c5e;
     color: #F4EDD3;
-    width: 200px;
-    height: 100px;
+    width: 300px;
+    max-height: 80px;
+    overflow-y: scroll;
     border-radius: 200px;
 }
-p {
+p{
     padding: 0;
     margin: 0;
 }
-
+ol {
+    padding-left: 13px;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: #F4EDD3;
+}
+input {
+    width: 80%;
+    font-size: 1rem;
+    margin: auto;
+}
+.word-input {
+    display: flex;
+}
+button {
+    text-align: center;
+    padding: 6px;
+    border-radius: 10px;
+}
 .bold{
-    font-size: 1.2em;
+    font-size: 1.5em;
     font-weight: bold;
     margin-bottom: 0;
 }
