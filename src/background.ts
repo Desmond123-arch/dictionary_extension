@@ -7,13 +7,13 @@ chrome.runtime.onInstalled.addListener(async () => {
         visible: true
     });
 
-    for (const cs of chrome.runtime.getManifest().content_scripts!) {
+    for (const cs of chrome.runtime.getManifest().content_scripts ?? []) {
         for (const tab of await chrome.tabs.query({ url: cs.matches })) {
             if (tab.url!.match(/(chrome|chrome-extension):\/\//gi)) {
                 continue;
             }
             if (tab.id && cs.all_frames && cs.js) {
-                const injection: chrome.scripting.ScriptInjection<any[], void> = {
+                const injection: chrome.scripting.ScriptInjection<[], void> = {
                     target: {
                         tabId: tab.id,
                         allFrames: cs.all_frames
